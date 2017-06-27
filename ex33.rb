@@ -1,10 +1,11 @@
-def loop(i, j)
+def loop(f, j)
   numbers = []
+  i = 0
   while i < j
   puts "At the top i is #{i}"
   numbers.push(i)
 
-  i += 1
+  i += f
   puts "Numbers now: ", numbers
   puts "At the bottom i is #{i}"
 
@@ -19,7 +20,16 @@ def question
   puts "> "
   input = $stdin.gets.chomp.to_i
   if input <= 10
-    loop(0, input)
+    puts "Enter a number less than or equal to 5 to increment by. Enter q to quit."
+    puts "> "
+    count = $stdin.gets.chomp.to_i
+    if count <= 5
+      loop(count, input)
+    elsif input == "q"
+    else
+      puts "Incorrect value."
+      question
+    end
   elsif input == "q"
   else
     puts "Incorrect value."
