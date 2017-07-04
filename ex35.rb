@@ -4,7 +4,7 @@ def gold_room
   print "> "
   choice = $stdin.gets.chomp
 
-  if check(choice)
+  if choice =~ /\d/
     how_much = choice.to_i
   else
     dead("Man, learn to type a number.")
@@ -17,7 +17,6 @@ def gold_room
     dead("You greedy bastard!")
   end
 end
-
 
 def bear_room
   puts """There is a bear here.
